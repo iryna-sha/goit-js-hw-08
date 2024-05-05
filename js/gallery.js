@@ -89,6 +89,18 @@ images.forEach(image => {
     gallery.appendChild(galleryItem);
  
     galleryLink.addEventListener('click', function (event) {
-        event.preventDefault();
-  });
-    });
+      event.preventDefault();
+      
+if (event.target.nodeName === 'IMG') {
+     
+        const largeImageUrl = event.target.dataset.source;
+        console.log(largeImageUrl);
+  
+  const instance = basicLightbox.create(`<img src="${largeImageUrl}" alt="">`);
+        instance.show();
+    }
+});
+    
+});
+    
+
